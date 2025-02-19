@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct PaperClipApp: App {
+    @StateObject var appCoordinator: AppCoordinator = AppCoordinator()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack(path: $appCoordinator.path) {
+                appCoordinator.build(.home)
+                    .navigationDestination(for: Screen.self) { screen in
+                        appCoordinator.build(screen)
+                    }
+            }
+            .environmentObject(appCoordinator)
         }
     }
 }
