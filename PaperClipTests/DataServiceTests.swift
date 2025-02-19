@@ -9,7 +9,7 @@ import XCTest
 @testable import PaperClip
 
 class RemoteDataServiceMock: RemoteDataServiceProtocol {
-    var morePagesAvailable: Bool = false
+    var morePagesAvailable = false
     var adsDataToReturn: AdList?
     var adCategoriesToReturn: [AdCategory]?
     var errorToThrow: Error?

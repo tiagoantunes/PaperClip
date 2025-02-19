@@ -15,19 +15,11 @@ struct AdCategory: Codable, Identifiable {
 
     let id: Int
     let name: String
-
-    init(
-        id: Int,
-        name: String
-    ) {
-        self.id = id
-        self.name = name
-    }
 }
 
 extension AdCategory: Equatable, Hashable {
     static func == (lhs: AdCategory, rhs: AdCategory) -> Bool {
-        lhs.id == lhs.id
+        lhs.id == rhs.id
     }
 
     func hash(into hasher: inout Hasher) {

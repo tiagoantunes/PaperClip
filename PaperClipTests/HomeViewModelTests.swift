@@ -12,7 +12,7 @@ import Combine
 class DataServiceMock: DataServiceProtocol {
     var adsToReturn: AdList?
     var errorToThrow: Error?
-    var moreContentAvailable: Bool = false
+    var moreContentAvailable = false
 
     func getAdList() async throws -> AdList {
         if let error = errorToThrow {
@@ -103,7 +103,6 @@ class HomeViewModelTests: XCTestCase {
         XCTAssertEqual(lastAd.creationDate, "2019-11-05T15:56:55+0000")
         XCTAssertFalse(lastAd.isUrgent)
         XCTAssertEqual(lastAd.siret, "123 323 002")
-
 
         XCTAssertFalse(viewModel.isDataLoading)
         XCTAssertEqual(viewModel.navigationBarTitle, "Items (2/2)")

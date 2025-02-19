@@ -38,7 +38,7 @@ extension DetailsViewModel {
     var title: String {
         ad.title
     }
-    
+
     var description: String {
         ad.description
     }

@@ -15,7 +15,6 @@ struct DetailsView<ViewModel>: View where ViewModel: DetailsViewModel {
         self._viewModel = StateObject(wrappedValue: viewModel())
     }
 
-
     var body: some View {
         ZStack(alignment: .topLeading) {
             detailsView

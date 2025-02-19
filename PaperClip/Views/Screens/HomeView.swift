@@ -26,7 +26,6 @@ struct HomeView<ViewModel>: View where ViewModel: HomeViewModelProtocol {
         .navigationTitle(viewModel.navigationBarTitle)
         .searchable(text: $viewModel.searchText, prompt: Strings.searchPrompt)
 
-
         .task {
             await viewModel.fetchAdsData()
         }
@@ -37,17 +36,22 @@ struct HomeView<ViewModel>: View where ViewModel: HomeViewModelProtocol {
             }
         }
     }
-    
+
     @ViewBuilder private var contentView: some View {
         if viewModel.isSearchActive {
-            ListContainerView(viewModel: ListViewModel(ads: $viewModel.searchAds, didSelectAd: { ad in
-                appCoordinator.push(
-                    .details(
-                        ad: ad,
-                        category: viewModel.categoryFor(id: ad.categoryId)
-                    )
+            ListContainerView(
+                viewModel: ListViewModel(
+                    ads: $viewModel.searchAds,
+                    didSelectAd: { ad in
+                        appCoordinator.push(
+                            .details(
+                                ad: ad,
+                                category: viewModel.categoryFor(id: ad.categoryId)
+                            )
+                        )
+                    }
                 )
-            }))
+            )
         } else {
             GridView(viewModel: viewModel)
         }

@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct PaperClipApp: App {
-    @StateObject var appCoordinator: AppCoordinator = AppCoordinator()
+    @StateObject var appCoordinator = AppCoordinator()
 
     var body: some Scene {
         WindowGroup {

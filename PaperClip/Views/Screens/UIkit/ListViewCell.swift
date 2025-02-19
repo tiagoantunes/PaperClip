@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class ListViewCell: UITableViewCell {
     static let cellId = "AdViewCell"
 
@@ -15,10 +14,10 @@ class ListViewCell: UITableViewCell {
         let videoImage = UIImageView()
         videoImage.translatesAutoresizingMaskIntoConstraints = false
         videoImage.layer.cornerRadius = 6
-        videoImage.layer.masksToBounds = false;
-        videoImage.layer.shadowOffset = CGSizeMake(0, 0);
-        videoImage.layer.shadowRadius = 8;
-        videoImage.layer.shadowOpacity = 0.5;
+        videoImage.layer.masksToBounds = false
+        videoImage.layer.shadowOffset = CGSize(width: 0, height: 0)
+        videoImage.layer.shadowRadius = 8
+        videoImage.layer.shadowOpacity = 0.5
         videoImage.clipsToBounds = true
         videoImage.contentMode = .scaleAspectFit
         return videoImage
@@ -43,7 +42,6 @@ class ListViewCell: UITableViewCell {
             adImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             adImageView.heightAnchor.constraint(equalToConstant: 80),
             adImageView.widthAnchor.constraint(equalTo: adImageView.heightAnchor, multiplier: 16/9),
-
             adTitle.centerYAnchor.constraint(equalTo: centerYAnchor),
             adTitle.leadingAnchor.constraint(equalTo: adImageView.trailingAnchor, constant: 20),
             adTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),

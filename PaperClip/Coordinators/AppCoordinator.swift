@@ -8,7 +8,7 @@
 import SwiftUI
 
 class AppCoordinator: AppCoordinatorProtocol {
-    @Published var path: NavigationPath = NavigationPath()
+    @Published var path = NavigationPath()
 
     private let remoteDataService = RemoteDataService()
 

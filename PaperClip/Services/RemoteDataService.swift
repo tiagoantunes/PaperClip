@@ -85,7 +85,7 @@ final class RemoteDataService: RemoteDataServiceProtocol {
         guard let url = urlComponents?.url else { return nil }
 
         let headers = [
-            "accept": "application/json",
+            "accept": "application/json"
         ]
 
         var urlRequest = URLRequest(

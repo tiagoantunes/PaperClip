@@ -5,7 +5,7 @@
 //  Created by Tiago Antunes on 16/02/2025.
 //
 
-struct Logger {
+enum Logger {
 
     static func log(info: String) {
         #if !DEBUG

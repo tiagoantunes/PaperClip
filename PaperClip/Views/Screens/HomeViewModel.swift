@@ -30,8 +30,8 @@ final class HomeViewModel: HomeViewModelProtocol {
     private var cancellables = Set<AnyCancellable>()
     private var allAdsCount: Int = 0
 
-    @Published private(set) var isDataLoading: Bool = true
-    @Published var showAlert: Bool = false
+    @Published private(set) var isDataLoading = true
+    @Published var showAlert = false
     @Published private(set) var ads: [AdItem] = []
     @Published private var adCategories: [AdCategory] = []
 
@@ -69,7 +69,6 @@ final class HomeViewModel: HomeViewModelProtocol {
 
             let categoriesData = try await dataService.getAdCategories()
             Logger.log(info: "Downloaded \(categoriesData.count) Categories")
-
 
             await MainActor.run {
                 ads = adsData.ads

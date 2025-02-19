@@ -25,7 +25,6 @@ struct GridView<ViewModel>: View where ViewModel: HomeViewModelProtocol {
       ]
     }
 
-
     var body: some View {
         ScrollView(.vertical) {
             LazyVGrid(
@@ -33,7 +32,6 @@ struct GridView<ViewModel>: View where ViewModel: HomeViewModelProtocol {
                 spacing: spacing,
                 content: {
                     ForEach(Array(viewModel.ads.enumerated()), id: \.offset) { index, ad in
-                        
                         Button(
                             action: {
                                 appCoordinator.push(
@@ -77,7 +75,7 @@ struct GridView<ViewModel>: View where ViewModel: HomeViewModelProtocol {
     }
 
     private func detailsBar(index: Int, ad: AdItem, category: AdCategory?) -> some View {
-        VStack() {
+        VStack {
             Spacer()
             InfoBarView(
                 title: ad.title,

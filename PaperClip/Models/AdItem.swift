@@ -55,7 +55,7 @@ struct AdItem: Codable, Identifiable {
 
 extension AdItem: Equatable, Hashable {
     static func == (lhs: AdItem, rhs: AdItem) -> Bool {
-        lhs.id == lhs.id
+        lhs.id == rhs.id
     }
 
     func hash(into hasher: inout Hasher) {

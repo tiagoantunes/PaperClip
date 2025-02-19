@@ -31,12 +31,7 @@ final class ListViewController: UIViewController {
     }()
 
     override func loadView() {
-        super.loadView()
         setup()
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 
     func reloadTableView() {
@@ -75,11 +70,13 @@ extension ListViewController: UITableViewDataSource {
 
         let ad = viewModel.ads[indexPath.row]
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: ListViewCell.cellId, for: indexPath) as! ListViewCell
-
-        cell.configure(with: ad)
-
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: ListViewCell.cellId, for: indexPath) as? ListViewCell {
+            cell.configure(with: ad)
+            return cell
+        } else {
+            Logger.log(error: "Impossible to dequeue cell for index: \(indexPath.row) with identifier: \(ListViewCell.cellId)")
+            return UITableViewCell()
+        }
     }
 }
 

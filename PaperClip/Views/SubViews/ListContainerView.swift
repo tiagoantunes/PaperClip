@@ -15,7 +15,6 @@ struct ListContainerView: UIViewControllerRepresentable {
         self.viewModel = viewModel
     }
 
-
     func makeUIViewController(context: Context) -> ListViewController {
         ListViewController(viewModel: viewModel)
     }
