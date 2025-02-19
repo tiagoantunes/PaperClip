@@ -34,10 +34,3 @@ extension AdCategory: Equatable, Hashable {
         hasher.combine(self.id)
     }
 }
-
-/*
- {
-     "id": 1,
-     "name": "Véhicule"
-   },
- */

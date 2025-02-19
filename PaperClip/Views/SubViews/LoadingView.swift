@@ -13,8 +13,6 @@ struct LoadingView: View {
             Text(Strings.progressViewLabel)
         }
         .scaleEffect(1.2)
-        //.tint(.accent)
-        //.foregroundColor(.accent)
     }
 }
 

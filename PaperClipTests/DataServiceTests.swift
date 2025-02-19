@@ -29,7 +29,6 @@ class RemoteDataServiceMock: RemoteDataServiceProtocol {
     }
 }
 
-
 class DataServiceTests: XCTestCase {
     var dataService: DataService!
     var remoteDataServiceMock: RemoteDataServiceMock!

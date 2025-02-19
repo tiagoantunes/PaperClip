@@ -92,4 +92,3 @@ struct DetailsView<ViewModel>: View where ViewModel: DetailsViewModel {
         .padding(.leading, 16)
     }
 }
-

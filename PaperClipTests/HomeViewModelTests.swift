@@ -118,7 +118,6 @@ class HomeViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.isDataLoading)
     }
 
-
     func testOnTryAgain() async throws {
         let ads = [ad1]
         let adsData = AdList(ads: ads)

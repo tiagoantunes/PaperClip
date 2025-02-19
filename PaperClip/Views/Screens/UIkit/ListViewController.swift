@@ -30,8 +30,6 @@ final class ListViewController: UIViewController {
         return table
     }()
 
-    //private lazy var videoList = Videos()
-
     override func loadView() {
         super.loadView()
         setup()
@@ -48,7 +46,7 @@ final class ListViewController: UIViewController {
 
 private extension ListViewController {
     func setup() {
-        // add subview
+
         view.addSubview(tableView)
 
         tableView.dataSource = self

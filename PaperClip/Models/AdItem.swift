@@ -51,8 +51,6 @@ struct AdItem: Codable, Identifiable {
         self.isUrgent = isUrgent
         self.siret = siret
     }
-
-
 }
 
 extension AdItem: Equatable, Hashable {

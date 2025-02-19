@@ -20,7 +20,6 @@ protocol DetailsViewModelProtocol: ObservableObject {
     var categoryName: String? { get }
 }
 
-
 final class DetailsViewModel: DetailsViewModelProtocol {
     private var ad: AdItem
     private let category: AdCategory?
@@ -83,4 +82,3 @@ extension DetailsViewModel {
         ad.siret
     }
 }
-

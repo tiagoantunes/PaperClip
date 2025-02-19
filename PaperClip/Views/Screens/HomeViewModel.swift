@@ -23,11 +23,9 @@ protocol HomeViewModelProtocol: ObservableObject {
     func fetchAdsData() async
     func categoryFor(id: Int) -> AdCategory?
     func onTryAgain()
-
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
-
     private(set) var dataService: DataServiceProtocol
     private var cancellables = Set<AnyCancellable>()
     private var allAdsCount: Int = 0

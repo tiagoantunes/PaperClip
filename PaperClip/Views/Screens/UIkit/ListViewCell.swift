@@ -69,5 +69,4 @@ class ListViewCell: UITableViewCell {
         adImageView.image = nil
         adTitle.text = nil
     }
-
 }

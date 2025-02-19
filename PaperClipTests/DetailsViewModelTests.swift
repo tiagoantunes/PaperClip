@@ -53,6 +53,5 @@ class DetailsViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.thumbImageUrl, URL(string: "https://raw.githubusercontent.com/leboncoin/paperclip/master/ad-thumb/2c9563bbe85f12a5dcaeb2c40989182463270404.jpg"))
         XCTAssertEqual(viewModel.categoryName, "Auto")
         XCTAssertEqual(viewModel.saleType, "Regular Sale 🛍️")
-
     }
 }
