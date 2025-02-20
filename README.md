@@ -72,8 +72,3 @@ When the user selects an Ad, the app navigates to the details screen. All of the
 <img src="./Screenshots/details_portrait_iphone.png" width="400">
 
 <img src="./Screenshots/details_portrait_ipad.png" width="400">
-
-
-## TODO
-* localize the app 
-* uniformize the constants usage
