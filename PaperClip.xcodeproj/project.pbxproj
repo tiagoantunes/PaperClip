@@ -154,10 +154,10 @@
 		861BE0232D63962700020620 /* PaperClipTests */ = {
 			isa = PBXGroup;
 			children = (
-				861BE1E62D65579000020620 /* RemoteDataServiceTests.swift */,
-				861BE1BA2D64187500020620 /* DetailsViewModelTests.swift */,
 				861BE0722D63F3BF00020620 /* HomeViewModelTests.swift */,
+				861BE1BA2D64187500020620 /* DetailsViewModelTests.swift */,
 				861BE0702D63F39500020620 /* DataServiceTests.swift */,
+				861BE1E62D65579000020620 /* RemoteDataServiceTests.swift */,
 				861BE0742D63F3D700020620 /* PaperClipTests.swift */,
 			);
 			path = PaperClipTests;

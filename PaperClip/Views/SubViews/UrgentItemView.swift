@@ -9,11 +9,16 @@ import SwiftUI
 
 struct UrgentItemView: View {
 
+    private enum Constants {
+        static let isUrgentImage = "bolt.badge.clock.fill"
+        static let isNotUrgentImage = "bolt.badge.clock"
+    }
+
     let isUrgent: Bool
     let size: CGFloat
 
     var body: some View {
-        Image(systemName: isUrgent ? "bolt.badge.clock.fill" : "bolt.badge.clock")
+        Image(systemName: isUrgent ? Constants.isUrgentImage : Constants.isNotUrgentImage)
             .resizable()
             .foregroundColor(.white)
             .shadow(color: .black, radius: 10, x: 0, y: 0)

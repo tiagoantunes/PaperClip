@@ -11,6 +11,9 @@ enum Strings {
     static let progressViewLabel = "Loading..."
     static let navigationBarTitle = "Items"
     static let searchPrompt = "Search items"
+    static let productPrice = "%.0f€"
+    static let productUrgentSale = "Urgent Sale ⚡"
+    static let productRegularSale = "Regular Sale 🛍️"
 
     enum Alert {
         static let title = "An error occurred"

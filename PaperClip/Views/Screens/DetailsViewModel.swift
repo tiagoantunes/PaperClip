@@ -44,7 +44,7 @@ extension DetailsViewModel {
     }
 
     var price: String {
-        "\(ad.price)€"
+        String(format: Strings.productPrice, ad.price)
     }
 
     var creationDate: String? {
@@ -75,7 +75,7 @@ extension DetailsViewModel {
     }
 
     var saleType: String {
-        ad.isUrgent ? "Urgent Sale ⚡" : "Regular Sale 🛍️"
+        ad.isUrgent ? Strings.productUrgentSale : Strings.productRegularSale
     }
 
     var siretCode: String? {

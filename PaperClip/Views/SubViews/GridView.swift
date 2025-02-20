@@ -80,7 +80,7 @@ struct GridView<ViewModel>: View where ViewModel: HomeViewModelProtocol {
             InfoBarView(
                 title: ad.title,
                 category: category?.name ?? "",
-                price: "\(ad.price)€"
+                price: String(format: Strings.productPrice, ad.price)
             )
             .frame(width: size)
             .clipShape(

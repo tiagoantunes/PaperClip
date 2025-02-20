@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct DetailsView<ViewModel>: View where ViewModel: DetailsViewModel {
+
+    private enum Constants {
+        static var imageSeparatorName: String { "star.fill" }
+        static var backButtonImageName: String { "arrow.backward.circle.fill" }
+    }
+
     @EnvironmentObject var appCoordinator: AppCoordinator
     @StateObject private var viewModel: ViewModel
 
@@ -47,14 +53,14 @@ struct DetailsView<ViewModel>: View where ViewModel: DetailsViewModel {
 
                     HStack {
                         Text(viewModel.creationDate ?? "")
-                        Image(systemName: "star.fill").scaleEffect(0.5)
+                        Image(systemName: Constants.imageSeparatorName).scaleEffect(0.5)
                         Text(viewModel.price)
                     }
                     .font(.caption)
 
                     HStack {
                         Text(viewModel.categoryName ?? "")
-                        Image(systemName: "star.fill").scaleEffect(0.5)
+                        Image(systemName: Constants.imageSeparatorName).scaleEffect(0.5)
                         Text(viewModel.saleType)
                     }
                     .font(.caption)
@@ -80,7 +86,7 @@ struct DetailsView<ViewModel>: View where ViewModel: DetailsViewModel {
                 appCoordinator.pop()
             },
             label: {
-                Image(systemName: "arrow.backward.circle.fill")
+                Image(systemName: Constants.backButtonImageName)
                     .resizable()
                     .foregroundColor(.white)
                     .shadow(color: .black, radius: 10, x: 0, y: 0)
