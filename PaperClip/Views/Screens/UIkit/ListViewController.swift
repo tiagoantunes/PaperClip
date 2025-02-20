@@ -9,10 +9,15 @@ import UIKit
 
 final class ListViewController: UIViewController {
 
-    let viewModel: ListViewModel
+    private let delegate: ListViewDelegate
+    private let dataSource: ListViewDataSource
 
-    init(viewModel: ListViewModel) {
-        self.viewModel = viewModel
+    init(
+        delegate: ListViewDelegate,
+        dataSource: ListViewDataSource
+    ) {
+        self.delegate = delegate
+        self.dataSource = dataSource
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -31,6 +36,7 @@ final class ListViewController: UIViewController {
     }()
 
     override func loadView() {
+        super.loadView()
         setup()
     }
 
@@ -59,16 +65,16 @@ private extension ListViewController {
 
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.ads.count
+        return dataSource.numberOfRowsInSection()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard indexPath.row < viewModel.ads.count else {
+        guard indexPath.row < dataSource.numberOfRowsInSection() else {
             Logger.log(error: "Index out of bounds: \(indexPath.row)")
             return UITableViewCell()
         }
 
-        let ad = viewModel.ads[indexPath.row]
+        let ad = dataSource.elementForIndex(indexpath: indexPath)
 
         if let cell = tableView.dequeueReusableCell(withIdentifier: ListViewCell.cellId, for: indexPath) as? ListViewCell {
             cell.configure(with: ad)
@@ -83,6 +89,6 @@ extension ListViewController: UITableViewDataSource {
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        viewModel.didSelectAd(for: viewModel.ads[indexPath.row])
+        delegate.didSelectElement(indexpath: indexPath)
     }
 }

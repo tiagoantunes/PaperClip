@@ -39,19 +39,7 @@ struct HomeView<ViewModel>: View where ViewModel: HomeViewModelProtocol {
 
     @ViewBuilder private var contentView: some View {
         if viewModel.isSearchActive {
-            ListContainerView(
-                viewModel: ListViewModel(
-                    ads: $viewModel.searchAds,
-                    didSelectAd: { ad in
-                        appCoordinator.push(
-                            .details(
-                                ad: ad,
-                                category: viewModel.categoryFor(id: ad.categoryId)
-                            )
-                        )
-                    }
-                )
-            )
+            ListContainerView(delegate: self, dataSource: self)
         } else {
             GridView(viewModel: viewModel)
         }
@@ -67,4 +55,27 @@ struct HomeView<ViewModel>: View where ViewModel: HomeViewModelProtocol {
         )
     )
     .preferredColorScheme(.dark)
+}
+
+
+extension HomeView: ListViewDataSource {
+    func numberOfRowsInSection() -> Int {
+        viewModel.searchAds.count
+    }
+
+    func elementForIndex(indexpath: IndexPath) -> AdItem {
+        viewModel.searchAds[indexpath.row]
+    }
+}
+
+extension HomeView: ListViewDelegate {
+    func didSelectElement(indexpath: IndexPath) {
+        let ad = viewModel.ads[indexpath.row]
+        appCoordinator.push(
+            .details(
+                ad: ad,
+                category: viewModel.categoryFor(id: ad.categoryId)
+            )
+        )
+    }
 }

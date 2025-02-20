@@ -7,19 +7,33 @@
 
 import SwiftUI
 
-struct ListContainerView: UIViewControllerRepresentable {
-    let viewModel: ListViewModel
-    @EnvironmentObject var appCoordinator: AppCoordinator
+protocol ListViewDataSource {
+    func numberOfRowsInSection() -> Int
+    func elementForIndex(indexpath: IndexPath) -> AdItem
+}
 
-    public init(viewModel: ListViewModel) {
-        self.viewModel = viewModel
+protocol ListViewDelegate {
+    func didSelectElement(indexpath: IndexPath)
+}
+
+struct ListContainerView: UIViewControllerRepresentable {
+    private let delegate: ListViewDelegate
+    private let dataSource: ListViewDataSource
+
+    init(
+        delegate: ListViewDelegate,
+        dataSource: ListViewDataSource
+    ) {
+        self.delegate = delegate
+        self.dataSource = dataSource
     }
 
     func makeUIViewController(context: Context) -> ListViewController {
-        ListViewController(viewModel: viewModel)
+        ListViewController(delegate: delegate, dataSource: dataSource)
     }
 
     func updateUIViewController(_ uiViewController: ListViewController, context: Context) {
         uiViewController.reloadTableView()
     }
 }
+
